@@ -63,7 +63,7 @@ export const PrisonerImplantManager = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item>
                   <box hidden={prisonerInfo.goal === null}>
-                    1 minute of prison time should roughly equate to 150 points.
+                    1 minute of prison time should roughly equate to 100 points.
                     <br />
                     <br />
                     Sentences should not exceed 5000 points.
