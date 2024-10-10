@@ -54,7 +54,7 @@
 		mark_target(target)
 		return .
 
-	afterattack(target, user, TRUE, params)
+	afterattack(target, user, TRUE, params, .)
 	mark_target(target)
 
 /// Used to mark a target for the demo system during a melee attack chain, call this before return
@@ -184,9 +184,6 @@
 
 	if(item_flags & NOBLUDGEON)
 		return .
-
-	if(try_item_eat(target, user))
-		return .|ATTACK_CHAIN_BLOCKED_ALL
 
 	if(force && (HAS_TRAIT(user, TRAIT_PACIFISM) || GLOB.pacifism_after_gt))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))

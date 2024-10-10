@@ -37,10 +37,6 @@
 		//Breathing, if applicable
 		handle_breathing(times_fired)
 
-	if(stat != DEAD)
-		//Random events (vomiting etc)
-		handle_random_events()
-
 	if(LAZYLEN(diseases))
 		handle_diseases()
 
@@ -116,9 +112,6 @@
 		var/datum/disease/D = thing
 		D.stage_act()
 
-/mob/living/proc/handle_random_events()
-	return
-
 /mob/living/proc/handle_environment(datum/gas_mixture/environment)
 	return
 
@@ -175,6 +168,10 @@
 			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
+		if(health <= HEALTH_THRESHOLD_CRIT)
+			throw_alert("succumb", /atom/movable/screen/alert/succumb)
+		else
+			clear_alert("succumb")
 
 
 /mob/living/update_stamina_hud(shown_stamina_loss)
